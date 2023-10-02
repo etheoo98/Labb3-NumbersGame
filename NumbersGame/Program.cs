@@ -8,8 +8,6 @@ namespace NumbersGame;
 
 internal static class Program
 {
-    private const int CloseGuess = 5;
-
     public static void Main()
     {
         PlayGame();
@@ -140,12 +138,14 @@ internal static class Program
             return true; // Return true on correct guess.
         }
         
+        const int closeGuess = 5;
+        
         switch (Math.Abs(guess - hiddenNumber))
         {
             case <= 1: // The guess is ± 1 of the hidden number.
                 Console.WriteLine("Det bränns!\n");
                 break;
-            case <= CloseGuess: // The guess is within ± close guess of the hidden number.
+            case <= closeGuess: // The guess is within ± close guess of the hidden number.
                 Console.WriteLine("Du är inte långt ifrån!\n");
                 break;
             default:
